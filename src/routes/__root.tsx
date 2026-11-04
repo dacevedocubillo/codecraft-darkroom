@@ -74,7 +74,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
-const UMAMI_ID = import.meta.env.VITE_UMAMI_WEBSITE_ID as string | undefined;
+const UMAMI_ID = import.meta.env["VITE_UMAMI_WEBSITE_ID"] as string | undefined;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
