@@ -4,8 +4,8 @@ import { courses } from "@/lib/content";
 import { seo } from "@/components/site";
 import { getRequestOrigin } from "@/lib/origin.functions";
 
-const TITLE = "Forgeline — Learn to code by building real things";
-const DESC = "Project-based programming courses in JavaScript, TypeScript, Python, SQL and Go. Learn by shipping real apps.";
+const TITLE = "Forgeline — Your first tech job starts here";
+const DESC = "Experience your first day in tech. Solve realistic IT support tickets in a fictional workplace simulation.";
 
 export const Route = createFileRoute("/")({
   loader: async () => ({ origin: await getRequestOrigin() }),
@@ -31,12 +31,12 @@ function Index() {
         <div className="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
           <div>
-            <p className="animate-fade-up font-mono text-sm text-primary">// learn by shipping</p>
+            <p className="animate-fade-up font-mono text-sm text-primary">// learn by doing</p>
             <h1 className="animate-fade-up mt-4 font-display text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl" style={{ animationDelay: "80ms" }}>
-              Write code that <span className="text-primary">actually runs</span>.
+              Your first tech job <span className="text-primary">starts here</span>.
             </h1>
             <p className="animate-fade-up mt-6 max-w-md text-lg text-muted-foreground" style={{ animationDelay: "160ms" }}>
-              Hands-on programming courses where every lesson ends with something you built. No toy examples, no fluff.
+              Step into a fictional tech company, investigate real-world-style problems, and build confidence before your first day on the job.
             </p>
             <div className="animate-fade-up mt-8 flex flex-wrap gap-3" style={{ animationDelay: "240ms" }}>
               <Link to="/courses" className="rounded-md bg-primary px-5 py-3 font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
