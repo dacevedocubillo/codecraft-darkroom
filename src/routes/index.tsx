@@ -66,6 +66,32 @@ function Index() {
       </div>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
+        <div className="mb-8">
+          <p className="font-mono text-sm text-primary">// career pathways</p>
+          <h2 className="mt-3 font-display text-3xl font-bold">Choose a career. Experience the work.</h2>
+          <p className="mt-3 max-w-2xl text-muted-foreground">Explore a path, learn essential skills, and step into a fictional workplace to solve realistic challenges.</p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          <Link to="/simulator" className="rounded-xl border bg-card p-6 transition-colors hover:border-primary">
+            <span className="font-mono text-xs text-primary">AVAILABLE NOW</span>
+            <h3 className="mt-3 font-display text-xl font-semibold">IT Support Specialist</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Join NovaTech, investigate account issues and resolve your first service desk ticket.</p>
+            <p className="mt-5 font-mono text-sm text-primary">Start simulation →</p>
+          </Link>
+          {[
+            ["Software Development", "Debug applications, review code and ship features."],
+            ["Cybersecurity", "Investigate security alerts and respond to incidents."],
+            ["Data Analytics & QA", "Analyze data and test software quality."],
+          ].map(([name, description]) => (
+            <div key={name} className="rounded-xl border bg-card p-6 opacity-75">
+              <span className="font-mono text-xs text-muted-foreground">COMING SOON</span>
+              <h3 className="mt-3 font-display text-xl font-semibold">{name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid gap-8 md:grid-cols-3">
           {[
             ["01", "Build, don't watch", "Every module is a working project. You write the code; we review it."],
