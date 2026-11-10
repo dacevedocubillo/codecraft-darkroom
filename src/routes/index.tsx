@@ -2,23 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import { courses } from "@/lib/content";
 import { seo } from "@/components/site";
-import { getRequestOrigin } from "@/lib/origin.functions";
 
 const TITLE = "Forgeline — Your first tech job starts here";
 const DESC = "Experience your first day in tech. Solve realistic IT support tickets in a fictional workplace simulation.";
 
 export const Route = createFileRoute("/")({
-  loader: async () => ({ origin: await getRequestOrigin() }),
-  head: ({ loaderData }) => {
-    const base = seo(TITLE, DESC, "/");
-    const img = loaderData ? `${loaderData.origin}/og.jpg` : null;
-    return {
-      ...base,
-      meta: img
-        ? [...base.meta, { property: "og:image", content: img }, { name: "twitter:image", content: img }]
-        : base.meta,
-    };
-  },
+  head: () => seo(TITLE, DESC, "/"),
   component: Index,
 });
 
