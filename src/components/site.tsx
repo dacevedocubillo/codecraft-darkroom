@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 
 const nav = [
+  { to: "/careers", label: "Careers" },
   { to: "/courses", label: "Courses" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
@@ -74,7 +75,7 @@ export function Footer() {
     <footer className="mt-24 border-t">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-10 text-sm text-muted-foreground md:flex-row md:justify-between">
         <p className="font-mono">
-          <span className="text-primary">{"{ }"}</span> Forgeline — learn to code by building real things.
+          <span className="text-primary">{"{ }"}</span> Forgeline — learn skills and experience real-world tech work.
         </p>
         <div className="flex gap-6">
           {nav.map((n) => (
