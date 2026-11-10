@@ -22,8 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - name: Build original app as static site
         run: npx vite build --config vite.pages.config.ts
       - name: Check static output
