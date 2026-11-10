@@ -65,32 +65,57 @@ function Index() {
         </div>
       </div>
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="mb-8">
-          <p className="font-mono text-sm text-primary">// career pathways</p>
-          <h2 className="mt-3 font-display text-3xl font-bold">Choose a career. Experience the work.</h2>
-          <p className="mt-3 max-w-2xl text-muted-foreground">Explore a path, learn essential skills, and step into a fictional workplace to solve realistic challenges.</p>
+      <section className="mx-auto max-w-6xl px-5 py-20" id="careers">
+        <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="font-mono text-sm text-primary">// explore careers</p>
+            <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">Choose your path in tech.</h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">Discover a career, build the skills, and experience the work in a fictional company.</p>
+          </div>
+          <Link to="/careers" className="font-mono text-sm text-primary hover:underline">Explore all careers →</Link>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          <Link to="/simulator" className="rounded-xl border bg-card p-6 transition-colors hover:border-primary">
-            <span className="font-mono text-xs text-primary">AVAILABLE NOW</span>
-            <h3 className="mt-3 font-display text-xl font-semibold">IT Support Specialist</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Join NovaTech, investigate account issues and resolve your first service desk ticket.</p>
-            <p className="mt-5 font-mono text-sm text-primary">Start simulation →</p>
-          </Link>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
-            ["Software Development", "Debug applications, review code and ship features."],
-            ["Cybersecurity", "Investigate security alerts and respond to incidents."],
-            ["Data Analytics & QA", "Analyze data and test software quality."],
-          ].map(([name, description]) => (
-            <div key={name} className="rounded-xl border bg-card p-6 opacity-75">
-              <span className="font-mono text-xs text-muted-foreground">COMING SOON</span>
-              <h3 className="mt-3 font-display text-xl font-semibold">{name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-            </div>
+            { name: "IT Support", detail: "Troubleshoot real-world-style tickets at NovaTech.", skills: "Troubleshooting · Identity · Service Desk", available: true },
+            { name: "Software Development", detail: "Debug applications, review code and build features.", skills: "JavaScript · TypeScript · Git", available: false },
+            { name: "Cybersecurity", detail: "Investigate alerts and respond to security incidents.", skills: "Security · Investigation · Response", available: false },
+            { name: "Data Analytics", detail: "Turn messy data into meaningful decisions.", skills: "SQL · Python · Reporting", available: false },
+            { name: "QA Testing", detail: "Find defects, test releases and improve quality.", skills: "Testing · Bug reports · Automation", available: false },
+            { name: "Cloud & DevOps", detail: "Understand deployments and infrastructure.", skills: "Cloud · Linux · CI/CD", available: false },
+          ].map((career) => (
+            <article key={career.name} className="flex flex-col rounded-xl border bg-card p-6 transition-colors hover:border-primary">
+              <span className={career.available ? "font-mono text-xs text-primary" : "font-mono text-xs text-muted-foreground"}>{career.available ? "SIMULATOR AVAILABLE" : "COMING SOON"}</span>
+              <h3 className="mt-3 font-display text-xl font-semibold">{career.name}</h3>
+              <p className="mt-2 flex-1 text-sm text-muted-foreground">{career.detail}</p>
+              <p className="mt-5 text-xs text-muted-foreground">{career.skills}</p>
+              <Link to={career.available ? "/simulator" : "/careers"} className="mt-5 inline-block text-sm font-medium text-primary hover:underline">
+                {career.available ? "Start simulation →" : "Explore career →"}
+              </Link>
+            </article>
           ))}
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-20">
+        <div className="rounded-xl border bg-card p-7 md:p-10">
+          <p className="font-mono text-sm text-primary">// how it works</p>
+          <h2 className="mt-3 font-display text-3xl font-bold">Learn. Practice. Experience.</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              ["01", "Learn", "Build a foundation with practical courses and resources."],
+              ["02", "Practice", "Investigate realistic workplace tasks and make decisions."],
+              ["03", "Experience", "Complete missions and build confidence in your chosen career."],
+            ].map(([number, title, detail]) => (
+              <div key={number}>
+                <p className="font-mono text-sm text-primary">{number}</p>
+                <h3 className="mt-2 font-display text-xl font-semibold">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid gap-8 md:grid-cols-3">
           {[
